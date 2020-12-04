@@ -2,6 +2,7 @@
 // -----------------------
 // Write a function that takes no arguments and returns the markup you see below:
 //
+
 //  <div class="header">
 //    <span class="date">MARCH 28, 2020</span>
 //    <h1>Lambda Times</h1>
@@ -11,4 +12,26 @@
 // Use your function to create a header
 // and append it to the DOM inside the div.header-container
 
-function Header() {}
+function Header() {
+  const head = document.createElement("div");
+  const date = document.createElement("span");
+  const lambda = document.createElement("h1");
+  const temp = document.createElement("span");
+
+  head.classList.add("header");
+  date.classList.add("date");
+  temp.classList.add("temp");
+
+  date.textContent = `MARCH 28, 2020`;
+  lambda.textContent = `Lambda Times`;
+  temp.textContent = `98°`;
+
+  [date, lambda, temp].forEach(el);
+  {
+    head.appendChild(el);
+  }
+
+  return head;
+  const container = document.querySelector(".header-container");
+  container.appendChild(Header());
+}
