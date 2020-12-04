@@ -10,23 +10,24 @@
 //
 // NOTE: you do _not_ need to install axios as it's included in the HTML via script element
 
-// import axios from "axios";
-// console.log(axios);
+import axios from "axios";
+console.log(axios);
 
-// axios
-//   .get(`https://lambda-times-api.herokuapp.com/topics`)
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
-// const topics = document.querySelector(".topics")
-
-// function createTab(obj) {
-//     const topic = document.createElement("div");
-//     topic.classList.add("tab");
-//     // topic.textContent = `${obj.data. }`
-//     return topic;
-//   }
+axios
+  .get(`https://lambda-times-api.herokuapp.com/topics`)
+  .then((res) => {
+    const tabs = document.querySelector(".tabs");
+    const createTab = res.data;
+    createTab.topics.forEach((item) => {
+      const tab = document.createElement("div");
+      tab.classList.add("tab");
+      tab.textContent = item;
+      const topics = document.querySelector(".topics");
+      topics.appendChild(tab);
+    });
+    console.log("do you see me?", res);
+    console.log(createTab);
+  })
+  .catch((err) => {
+    console.log(err);
+  });

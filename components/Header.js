@@ -26,12 +26,11 @@ function Header() {
   lambda.textContent = `Lambda Times`;
   temp.textContent = `98°`;
 
-  [date, lambda, temp].forEach(el);
-  {
+  [date, lambda, temp].forEach((el) => {
     head.appendChild(el);
-  }
+  });
 
   return head;
-  const container = document.querySelector(".header-container");
-  container.appendChild(Header());
 }
+const container = document.querySelector(".header-container");
+container.appendChild(Header());
